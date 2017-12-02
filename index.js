@@ -1,5 +1,6 @@
 const DODGER = document.getElementById('dodger');
 const GAME = document.getElementById('game');
+// const HIGHSCORES = document.getElemntsByClassName('high-scores')[0];
 const GAME_HEIGHT = 400;
 const GAME_WIDTH = 400;
 const LEFT_ARROW = 37;
@@ -68,9 +69,6 @@ function createburger(x) {
 function endGame() {
   var button = document.createElement('BUTTON');
   var lineBR = document.createElement('br');
-  button.addEventListener('click', function() {
-    window.location.reload();
-  })
   for (var i = 0; i < BURGERS.length; i++) {
     BURGERS[i].remove();
   }
@@ -80,6 +78,10 @@ function endGame() {
   GAMEOVER.appendChild(lineBR)
   GAMEOVER.appendChild(button);
   button.innerHTML = 'Restart';
+  button.addEventListener('click', function() {
+    window.location.reload();
+  });
+  // button.addEventListener('click', gameOver);
   COUNTER = undefined;
 }
 
@@ -138,3 +140,13 @@ function start() {
     createburger(Math.floor(Math.random() *  (GAME_WIDTH - 20)))
   }, 1000)
 }
+
+// function gameOver() {
+//   window.addEventListener('keydown', moveDodger)
+//   GAMEOVER.innerHTML = '';
+//   COUNTER.innerHTML = 0;
+//
+//   gameInterval = setInterval(function() {
+//     createburger(Math.floor(Math.random() *  (GAME_WIDTH - 20)))
+//   }, 1000)
+// }
